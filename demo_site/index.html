@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Squish Framework Demo</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:760px;margin:40px auto;padding:0 20px}
+.card{border:1px solid #ccc;padding:24px;border-radius:10px}
+input,button{padding:10px;margin:6px 3px}
+#loginResult,#welcomeMessage{margin-top:12px;font-weight:bold}
+#logoutButton{display:none}
+</style>
+<script>
+function login() {
+    const u = document.getElementById("usernameInput").value;
+    const p = document.getElementById("passwordInput").value;
+    const valid = (u === "admin" && p === "admin123") || (u === "tester" && p === "test123");
+    const result = document.getElementById("loginResult");
+    const welcome = document.getElementById("welcomeMessage");
+    const logout = document.getElementById("logoutButton");
+    if (valid) {
+        result.innerText = "Success";
+        welcome.innerText = "Welcome " + u;
+        logout.style.display = "inline-block";
+    } else {
+        result.innerText = "Failure";
+        welcome.innerText = "";
+        logout.style.display = "none";
+    }
+}
+function logout() {
+    document.getElementById("loginResult").innerText = "";
+    document.getElementById("welcomeMessage").innerText = "";
+    document.getElementById("usernameInput").value = "";
+    document.getElementById("passwordInput").value = "";
+    document.getElementById("logoutButton").style.display = "none";
+}
+</script>
+</head>
+<body>
+<div class="card">
+  <h1>Squish POM + DDT + BDD Demo</h1>
+  <p>Use this page with the included Squish framework.</p>
+  <input id="usernameInput" type="text" placeholder="Username">
+  <input id="passwordInput" type="password" placeholder="Password">
+  <button id="loginButton" onclick="login()">Login</button>
+  <button id="logoutButton" onclick="logout()">Logout</button>
+  <div id="loginResult"></div>
+  <div id="welcomeMessage"></div>
+  <hr>
+  <p><b>Valid:</b> admin/admin123, tester/test123</p>
+  <p><b>Invalid:</b> wrong/wrong123</p>
+</div>
+</body>
+</html>

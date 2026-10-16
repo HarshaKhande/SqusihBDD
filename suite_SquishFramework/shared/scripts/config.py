@@ -1,0 +1,5 @@
+# -*- coding: UTF-8 -*-
+BASE_URL = "http://127.0.0.1:8000"
+DEFAULT_TIMEOUT = 10000
+VALID_USERNAME = "admin"
+VALID_PASSWORD = "admin123"
